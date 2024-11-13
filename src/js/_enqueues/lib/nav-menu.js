@@ -319,7 +319,7 @@
 								$selected = 'selected';
 							}
 
-							$html += '<option ' + $selected + ' value="0">No Parent</option>';
+							$html += '<option ' + $selected + ' value="0">' + wp.i18n.__( 'No Parent' ) + '</option>';
 
 							$.each( menuItems, function() {
 								var menuItem = $(this),
@@ -364,7 +364,7 @@
 									if ( i == itemPosition ) { 
 										$selected = 'selected';
 									}
-									$html += '<option ' + $selected + ' value="' + i + '">' + i + ' of ' + totalMenuItems + '</option>';
+									$html += '<option ' + $selected + ' value="' + i + '">' + i + wp.i18n.__( ' of ' ) + totalMenuItems + '</option>';
 								}
 
 							} else {
@@ -380,7 +380,7 @@
 									if ( i == itemPosition ) {
 										$selected = 'selected';
 									}
-									$html += '<option ' + $selected + ' value="' + i + '">' + i + ' of ' + totalSubMenuItems + '</option>';
+									$html += '<option ' + $selected + ' value="' + i + '">' + i + wp.i18n.__( ' of ' ) + totalSubMenuItems + '</option>';
 								}
 
 							}
