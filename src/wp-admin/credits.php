@@ -148,3 +148,4 @@ __( 'Default Theme Design Lead' );
 __( 'Default Theme Development Lead' );
 __( 'Tech Lead' );
 __( 'Triage Lead' );
+__( 'Minor Release Lead' );
