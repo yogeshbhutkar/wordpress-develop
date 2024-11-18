@@ -319,7 +319,7 @@
 								$selected = 'selected';
 							}
 
-							$html += '<option ' + $selected + ' value="0">' + wp.i18n.__( 'No Parent' ) + '</option>';
+							$html += '<option ' + $selected + ' value="0">' + wp.i18n._x( 'No Parent', 'menu item without a parent in navigation menu' ) + '</option>';
 
 							$.each( menuItems, function() {
 								var menuItem = $(this),
@@ -364,7 +364,7 @@
 									if ( i == itemPosition ) { 
 										$selected = 'selected';
 									}
-									$html += '<option ' + $selected + ' value="' + i + '">' + i + wp.i18n.__( ' of ' ) + totalMenuItems + '</option>';
+									$html += '<option ' + $selected + ' value="' + i + '">' + i + wp.i18n._x( ' of ', 'indicating a part of a total number of items in a navigation menu' ) + totalMenuItems + '</option>';
 								}
 
 							} else {
@@ -380,7 +380,7 @@
 									if ( i == itemPosition ) {
 										$selected = 'selected';
 									}
-									$html += '<option ' + $selected + ' value="' + i + '">' + i + wp.i18n.__( ' of ' ) + totalSubMenuItems + '</option>';
+									$html += '<option ' + $selected + ' value="' + i + '">' + i + wp.i18n._x( ' of ', 'indicating a part of a total number of items in the submenu' ) + totalSubMenuItems + '</option>';
 								}
 
 							}
