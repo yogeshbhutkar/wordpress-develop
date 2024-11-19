@@ -364,6 +364,7 @@
 									if ( i == itemPosition ) { 
 										$selected = 'selected';
 									}
+									// Translators: %1$s is the current menu item number, %2$s is the total number of menu items.
 									$html += '<option ' + $selected + ' value="' + i + '">' + wp.i18n.sprintf( wp.i18n._x( '%1$s of %2$s', 'indicating a part of a total number of items in a navigation menu' ), i, totalMenuItems ) + '</option>';
 								}
 
@@ -380,6 +381,7 @@
 									if ( i == itemPosition ) {
 										$selected = 'selected';
 									}
+									// Translators: %1$s is the current submenu item number, %2$s is the total number of submenu items.
 									$html += '<option ' + $selected + ' value="' + i + '">' + wp.i18n.sprintf( wp.i18n._x( '%1$s of %2$s', 'indicating a part of a total number of items in the submenu' ), i, totalSubMenuItems ) + '</option>';
 								}
 
