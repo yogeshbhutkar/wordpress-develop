@@ -364,7 +364,7 @@
 									if ( i == itemPosition ) { 
 										$selected = 'selected';
 									}
-									$html += '<option ' + $selected + ' value="' + i + '">' + i + wp.i18n._x( ' of ', 'indicating a part of a total number of items in a navigation menu' ) + totalMenuItems + '</option>';
+									$html += '<option ' + $selected + ' value="' + i + '">' + wp.i18n.sprintf( wp.i18n._x( '%1$s of %2$s', 'indicating a part of a total number of items in a navigation menu' ), i, totalMenuItems ) + '</option>';
 								}
 
 							} else {
@@ -380,7 +380,7 @@
 									if ( i == itemPosition ) {
 										$selected = 'selected';
 									}
-									$html += '<option ' + $selected + ' value="' + i + '">' + i + wp.i18n._x( ' of ', 'indicating a part of a total number of items in the submenu' ) + totalSubMenuItems + '</option>';
+									$html += '<option ' + $selected + ' value="' + i + '">' + wp.i18n.sprintf( wp.i18n._x( '%1$s of %2$s', 'indicating a part of a total number of items in the submenu' ), i, totalSubMenuItems ) + '</option>';
 								}
 
 							}
