@@ -333,7 +333,7 @@ class Theme_Installer_Skin extends WP_Upgrader_Skin {
 			if ( $this->is_downgrading ) {
 				$warning = sprintf(
 					/* translators: %s: Documentation URL. */
-					__( 'You are uploading an older version of the active theme. You can continue to install the older version, but be sure to <a href="%s">back up your database and files</a> first.' ),
+					__( 'You are uploading an older version of the current theme. You can continue to install the older version, but be sure to <a href="%s">back up your database and files</a> first.' ),
 					__( 'https://developer.wordpress.org/advanced-administration/security/backup/' )
 				);
 			} else {
