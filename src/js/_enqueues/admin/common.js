@@ -1353,12 +1353,12 @@ $( function() {
 	$( '.hide-column-tog' ).on( 'change' , function() {
 		var optionTitle = $( this ).closest( 'label' ).text(); 
 		var message = this.checked ? 
-						wp.i18n.sprintf( 
-							wp.i18n.__( '%s checkbox checked.' ), optionTitle 
-						) : 
-						wp.i18n.sprintf( 
-							wp.i18n.__( '%s checkbox unchecked.' ), optionTitle 
-						);
+			wp.i18n.sprintf( 
+				wp.i18n.__( '%s checkbox checked.' ), optionTitle 
+			) : 
+			wp.i18n.sprintf( 
+				wp.i18n.__( '%s checkbox unchecked.' ), optionTitle 
+			);
 		wp.a11y.speak( message );
 	} );
 
