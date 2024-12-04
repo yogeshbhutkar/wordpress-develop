@@ -49,9 +49,9 @@ jQuery( function($) {
 
 	// Speak a message when the Welcome Option checkbox is checked.
 	$( '#wp_welcome_panel-hide' ).on( 'change', function() {
-		var message = this.checked
-			? wp.i18n.__( 'Welcome Panel checkbox checked.' )
-			: wp.i18n.__( 'Welcome Panel checkbox unchecked.' );
+		var message = this.checked ? 
+			wp.i18n.__( 'Welcome Panel checkbox checked.' ) :
+			wp.i18n.__( 'Welcome Panel checkbox unchecked.' );
 		wp.a11y.speak( message );
 	} );
 

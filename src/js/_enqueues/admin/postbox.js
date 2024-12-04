@@ -322,16 +322,9 @@
 					}
 				}
 				
-				message = $el.prop( 'checked' )
-					? sprintf(
-							__( 'The checkbox %s has been checked.' ),
-							widgetTitle
-					  )
-					: sprintf(
-							__( 'The checkbox %s has been unchecked.' ),
-							widgetTitle
-					  );
-				
+				message = $el.prop( 'checked' ) ?
+					sprintf( __( 'The checkbox %s has been checked.' ),	widgetTitle ) :
+					sprintf( __( 'The checkbox %s has been unchecked.' ), widgetTitle );
 				wp.a11y.speak( message );
 
 				postboxes.save_state( page );
