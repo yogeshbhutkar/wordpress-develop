@@ -53,7 +53,7 @@ jQuery( function($) {
 						wp.i18n.__( 'Welcome Panel checkbox checked.' ) : 
 						wp.i18n.__( 'Welcome Panel checkbox unchecked.' );
 		wp.a11y.speak( message );
-	});
+	} );
 
 	// Set welcome panel visibility based on Welcome Option checkbox value.
 	welcomePanelHide.on( 'click', function() {
