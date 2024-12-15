@@ -346,8 +346,17 @@ class WP_REST_Posts_Controller extends WP_REST_Controller {
 
 		$args = $this->prepare_tax_query( $args, $request );
 
-		if ( isset( $registered['format'], $request['format'] ) ) {
+		if ( ! empty( $request['format'] ) ) {
 			$formats = $request['format'];
+
+			if ( ! post_type_supports( $this->post_type, 'post-formats' ) ) {
+				return new WP_Error(
+					'rest_post_format_not_supported',
+					sprintf( __( 'Post formats for %s is not supported.' ), $this->post_type ),
+					array( 'status' => 400 )
+				);
+			}
+
 			/*
 			 * The relation needs to be set to `OR` since the request can contain
 			 * two separate conditions. The user may be querying for items that have
