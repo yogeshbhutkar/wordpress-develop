@@ -37,7 +37,6 @@ jobs:
   major-wp-version:
     name: Determine major WordPress version
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'WordPress/wordpress-develop' || github.event_name == 'pull_request' }}
     timeout-minutes: 5
     outputs:
       version: ${{ steps.major-wp-version.outputs.version }}
@@ -52,9 +51,9 @@ jobs:
       - name: Determine the major WordPress version
         id: major-wp-version
         run: |
-          if [ "${{ inputs.wp-version }}" ] && [ "${{ inputs.wp-version }}" != "nightly" ] && [ "${{ inputs.wp-version }}" != "latest" ]; then
+          if [ "${{ inputs.wp-version }}" ] && [ "${{ inputs.wp-version }}" != "nightly" ] && [ "${{ inputs.wp-version }}" != "latest" ] && [ "${{ inputs.wp-version }}" != "trunk" ]; then
             echo "version=$(echo "${{ inputs.wp-version }}" | tr '.' '-' | cut -d '-' -f1-2)" >> $GITHUB_OUTPUT
-          elif [ "${{ inputs.wp-version }}" ]; then
+          elif [ "${{ inputs.wp-version }}" ] && [ "${{ inputs.wp-version }}" != "trunk" ]; then
             echo "version=$(echo "${{ inputs.wp-version }}")" >> $GITHUB_OUTPUT
           else
             echo "version=nightly" >> $GITHUB_OUTPUT
@@ -69,7 +68,6 @@ jobs:
   php-versions:
     name: Determine PHP versions
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'WordPress/wordpress-develop' || github.event_name == 'pull_request' }}
     needs: [ major-wp-version ]
     timeout-minutes: 5
     outputs:
@@ -102,7 +100,6 @@ jobs:
   mysql-versions:
     name: Determine MySQL versions
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'WordPress/wordpress-develop' || github.event_name == 'pull_request' }}
     needs: [ major-wp-version ]
     timeout-minutes: 5
     outputs:
