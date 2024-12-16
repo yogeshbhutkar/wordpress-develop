@@ -135,7 +135,7 @@ __( 'Release Design Lead' );
 __( 'Release Deputy' );
 __( 'Core Developer' );
 __( 'External Libraries' );
-__( 'Release Coordinator' );
+__( 'Release Coordination' );
 __( 'Core Tech Lead' );
 __( 'Core Triage Lead' );
 __( 'Editor Tech Lead' );
