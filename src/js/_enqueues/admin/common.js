@@ -1357,7 +1357,7 @@ $( function() {
 				wp.i18n.__( 'The checkbox %s has been checked.' ), optionTitle 
 			) : 
 			wp.i18n.sprintf( 
-				wp.i18n.__( 'The checkbox %s has been checked.' ), optionTitle 
+				wp.i18n.__( 'The checkbox %s has been unchecked.' ), optionTitle 
 			);
 		wp.a11y.speak( message );
 	} );
