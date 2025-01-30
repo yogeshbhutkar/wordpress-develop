@@ -764,8 +764,7 @@ switch ( $action ) {
 		break;
 
 	case 'postpass':
-		$referer     = wp_get_referer();
-		$redirect_to = isset( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : $referer;
+		$redirect_to = $_POST['redirect_to'] ?? wp_get_referer();
 
 		if ( ! isset( $_POST['post_password'] ) || ! is_string( $_POST['post_password'] ) ) {
 			wp_safe_redirect( $redirect_to );
