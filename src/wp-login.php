@@ -782,8 +782,9 @@ switch ( $action ) {
 		 *
 		 * @param int $expires The expiry time, as passed to setcookie().
 		 */
-		$expire  = apply_filters( 'post_password_expires', time() + 10 * DAY_IN_SECONDS );
-		$referer = wp_get_referer();
+		$expire      = apply_filters( 'post_password_expires', time() + 10 * DAY_IN_SECONDS );
+		$referer     = wp_get_referer();
+		$redirect_to = isset( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : $referer;
 
 		if ( $referer ) {
 			$secure = ( 'https' === parse_url( $referer, PHP_URL_SCHEME ) );
@@ -793,7 +794,7 @@ switch ( $action ) {
 
 		setcookie( 'wp-postpass_' . COOKIEHASH, $hasher->HashPassword( wp_unslash( $_POST['post_password'] ) ), $expire, COOKIEPATH, COOKIE_DOMAIN, $secure );
 
-		wp_safe_redirect( wp_get_referer() );
+		wp_safe_redirect( $redirect_to );
 		exit;
 
 	case 'logout':
