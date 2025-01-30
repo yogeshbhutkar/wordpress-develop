@@ -785,7 +785,7 @@ switch ( $action ) {
 		 *
 		 * @param int $expires The expiry time, as passed to setcookie().
 		 */
-		$expire      = apply_filters( 'post_password_expires', time() + 10 * DAY_IN_SECONDS );
+		$expire = apply_filters( 'post_password_expires', time() + 10 * DAY_IN_SECONDS );
 
 		if ( $referer ) {
 			$secure = ( 'https' === parse_url( $referer, PHP_URL_SCHEME ) );
