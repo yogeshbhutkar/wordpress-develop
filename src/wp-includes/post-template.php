@@ -1798,10 +1798,13 @@ function get_the_password_form( $post = 0 ) {
 		$class                 = ' password-form-error';
 	}
 
-	$redirect_field = sprintf(
-		'<input type="hidden" name="redirect_to" value="%s" />',
-		esc_attr( get_permalink( $post ) )
-	);
+	$redirect_field = '';
+	if ( ! empty( $post->ID ) ) {
+		$redirect_field = sprintf(
+			'<input type="hidden" name="redirect_to" value="%s" />',
+			esc_attr( get_permalink( $post->ID ) )
+		);
+	}
 
 	$output = '<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" class="post-password-form' . $class . '" method="post">' . $redirect_field . $invalid_password_html . '
 	<p>' . __( 'This content is password protected. To view it please enter your password below:' ) . '</p>
