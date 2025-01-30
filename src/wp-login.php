@@ -787,8 +787,8 @@ switch ( $action ) {
 		 */
 		$expire = apply_filters( 'post_password_expires', time() + 10 * DAY_IN_SECONDS );
 
-		if ( $referer ) {
-			$secure = ( 'https' === parse_url( $referer, PHP_URL_SCHEME ) );
+		if ( $redirect_to ) {
+			$secure = ( 'https' === parse_url( $redirect_to, PHP_URL_SCHEME ) );
 		} else {
 			$secure = false;
 		}
