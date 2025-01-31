@@ -1780,6 +1780,7 @@ function get_the_password_form( $post = 0 ) {
 	$invalid_password_html = '';
 	$aria                  = '';
 	$class                 = '';
+	$redirect_field        = '';
 
 	// If the referrer is the same as the current request, the user has entered an invalid password.
 	if ( ! empty( $post->ID ) && wp_get_raw_referer() === get_permalink( $post->ID ) && isset( $_COOKIE[ 'wp-postpass_' . COOKIEHASH ] ) ) {
@@ -1798,7 +1799,6 @@ function get_the_password_form( $post = 0 ) {
 		$class                 = ' password-form-error';
 	}
 
-	$redirect_field = '';
 	if ( ! empty( $post->ID ) ) {
 		$redirect_field = sprintf(
 			'<input type="hidden" name="redirect_to" value="%s" />',
