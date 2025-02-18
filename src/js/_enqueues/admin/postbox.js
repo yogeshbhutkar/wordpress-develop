@@ -11,8 +11,7 @@
 
 (function($) {
 	var $document = $( document ),
-		__ = wp.i18n.__,
-		sprintf = wp.i18n.sprintf;
+		__ = wp.i18n.__;
 
 	/**
 	 * This object contains all function to handle the behavior of the post boxes. The post boxes are the boxes you see
@@ -306,9 +305,7 @@
 			$('.hide-postbox-tog').on('click.postboxes', function() {
 				var $el = $(this),
 					boxId = $el.val(),
-					$postbox = $( '#' + boxId ),
-					widgetTitle = $(this).data( 'widget-title' ),
-					message;
+					$postbox = $( '#' + boxId );
 
 				if ( $el.prop( 'checked' ) ) {
 					$postbox.show();
@@ -321,11 +318,6 @@
 						postboxes.pbhide( boxId );
 					}
 				}
-				
-				message = $el.prop( 'checked' ) ?
-					sprintf( __( 'The checkbox %s has been checked.' ),	widgetTitle ) :
-					sprintf( __( 'The checkbox %s has been unchecked.' ), widgetTitle );
-				wp.a11y.speak( message );
 
 				postboxes.save_state( page );
 				postboxes._mark_area();
@@ -475,7 +467,9 @@
 				hidden: hidden,
 				closedpostboxesnonce: jQuery('#closedpostboxesnonce').val(),
 				page: page
-			});
+			}).done( function() {
+				wp.a11y.speak( __( 'Screen Options saved.' ) );
+			} );
 		},
 
 		/**

@@ -31,7 +31,9 @@ jQuery( function($) {
 			action: 'update-welcome-panel',
 			visible: visible,
 			welcomepanelnonce: $( '#welcomepanelnonce' ).val()
-		});
+		}).done( function() {
+			wp.a11y.speak( wp.i18n.__( 'Screen Options saved.' ) );
+		} );
 	};
 
 	// Unhide the welcome panel if the Welcome Option checkbox is checked.
@@ -46,14 +48,6 @@ jQuery( function($) {
 		updateWelcomePanel( 0 );
 		$('#wp_welcome_panel-hide').prop('checked', false);
 	});
-
-	// Speak a message when the Welcome Option checkbox is checked.
-	$( '#wp_welcome_panel-hide' ).on( 'change', function() {
-		var message = this.checked ? 
-			wp.i18n.__( 'Welcome Panel checkbox checked.' ) :
-			wp.i18n.__( 'Welcome Panel checkbox unchecked.' );
-		wp.a11y.speak( message );
-	} );
 
 	// Set welcome panel visibility based on Welcome Option checkbox value.
 	welcomePanelHide.on( 'click', function() {
