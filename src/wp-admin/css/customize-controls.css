@@ -2780,14 +2780,10 @@ body.adding-widget .add-new-widget:before,
 
 .themes-filter-bar .search-icon {
 	position: absolute;
-	top: 2px;
-	left: 2px;
-	z-index: 1;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 6px;
 	color: #646970;
-	height: 30px;
-	width: 30px;
-	line-height: 2;
-	text-align: center;
 }
 
 .no-widgets-found-message {
@@ -2897,10 +2893,6 @@ body.adding-widget .add-new-widget:before,
 	.media-widget-control .media-widget-buttons .button.change-media,
 	.media-widget-control .media-widget-buttons .button.select-media {
 		margin-top: 12px;
-	}
-
-	.customize-preview-header.themes-filter-bar .search-icon {
-		top: 6px;
 	}
 }
 
